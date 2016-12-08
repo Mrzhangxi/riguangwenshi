@@ -1,0 +1,56 @@
+body{
+	background-color: #e1e6e4;
+}
+.titlediv{
+	font-size: xx-large;
+	margin-bottom: 10px;
+}
+#tablediv{
+	width: 500px;
+	margin: 10% auto;
+	text-align: center;
+}
+#insertdiv{
+	width: 300px;
+	text-align: center;
+	margin: 10% auto;
+}
+table {
+	border-style:solid;
+	border-width: 2px;
+	border-color: black;
+	border-collapse: collapse;
+}
+tr {
+	border-width: 2px;
+	border-style: solid;
+}
+th {
+	border-width: 2px;
+	border-style: solid;
+}
+td {
+	border-width: 2px;
+	border-style: solid;
+	text-align: center;
+}
+.shiliu{
+	width: 16%; 
+}
+.ba{
+	width: 8%;
+}
+.shier{
+	width: 12%;
+}
+.sishiliu{
+	width: 46%;
+}
+.wushisi{
+	width: 54%;
+}
+
+#insertselect{
+	width: 30%;
+	text-align: center;
+}
