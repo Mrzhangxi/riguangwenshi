@@ -1,10 +1,13 @@
 package utilsIpml;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 import utils.aboutString;
 
 public class aboutStringIpml implements aboutString{
 
-	public String[] resolveStringFromClient(String datas, String[] element) {
+	public String[] resolveStringFromClient(String datas, String[] element, Date cur_time) {
 		if(datas.contains("@") && datas.contains("#") && datas.contains("$")/* && datas.length() == 10 && datas.length() == 11*/){
 			String AirHumidity = datas.substring(1+17, 3+17);//加的17位是后边添加的Mac地址
 			System.out.println(AirHumidity);
@@ -37,8 +40,10 @@ public class aboutStringIpml implements aboutString{
 		} else {
 			return null;
 		}
+		cur_time = new Date();
+		SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 		aboutDatabaseImpl ad = new aboutDatabaseImpl();
-		ad.tempInsertelement(element[3], Double.parseDouble(element[1]), Double.parseDouble(element[0]), Double.parseDouble(element[2]));
+		ad.tempInsertelement(element[3], Double.parseDouble(element[1]), Double.parseDouble(element[0]), Double.parseDouble(element[2]), formatter.format(cur_time));
 		return element;
 	}
 

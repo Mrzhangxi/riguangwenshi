@@ -2,6 +2,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 import java.net.Socket;
+import java.util.Date;
 
 import utilsIpml.aboutStringIpml;
 
@@ -13,6 +14,7 @@ public class threadSocket extends Thread {
 	public void run() {
 		System.out.println(Thread.currentThread().getName());
 		try {
+			Date cur_time = null;
 			InputStream is = socket.getInputStream();
 			OutputStream os = socket.getOutputStream();	
 			aboutStringIpml asi = new aboutStringIpml();
@@ -23,7 +25,7 @@ public class threadSocket extends Thread {
 			while((readlength=is.read(buff)) > 0)	{//这个地方存在隐患，如果传过来的数据大于2014byte就会出现数据丢失的情况
 				str = new String(buff,0,readlength);//在没有断开输入流之前，这个循环会一直存在
 				System.out.println(str);
-				element = asi.resolveStringFromClient(str, element);
+				element = asi.resolveStringFromClient(str, element, cur_time);
 				if(element==null){
 					System.out.println("I'm server, Client’s datas not resolves");
 				} else{

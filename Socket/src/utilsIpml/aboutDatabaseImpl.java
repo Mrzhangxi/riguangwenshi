@@ -30,19 +30,20 @@ public class aboutDatabaseImpl implements aboutDatabase{
 
 
 	public int tempInsertelement(String Mac, double AirHumidity, double AirTemp,
-			double SoilHumidity) {
-		String url = "jdbc:mysql://localhost:3306/server";
+			double SoilHumidity, String createtime) {
+		String url = "jdbc:mysql://localhost:3306/servers";
 		String user = "root";
 		String pass = "123654147a";
 		aboutDatabaseImpl ad = new aboutDatabaseImpl();
 		ad.intiDatabase();
 		Connection conn = ad.getconn(url, user, pass);
 		try {
-			PreparedStatement pstemt = conn.prepareStatement("insert into elementdata1(mac,airtemp, airhum, soilhum) values (?,?,?,?)");
+			PreparedStatement pstemt = conn.prepareStatement("insert into elementdata(mac,airtemp, airhum, soilhum, time) values (?,?,?,?,?)");
 			pstemt.setString(1, Mac);
 			pstemt.setDouble(2, AirTemp);
 			pstemt.setDouble(3, AirHumidity);
 			pstemt.setDouble(4, SoilHumidity);
+			pstemt.setString(5, createtime);
 			pstemt.execute();
 		} catch (SQLException e) {
 			// TODO 自动生成的 catch 块

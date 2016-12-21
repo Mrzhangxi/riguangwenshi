@@ -23,8 +23,9 @@ public interface aboutDatabase {
 	 * @param AirHumidity 空气湿度
 	 * @param AirTemp 空气温度
 	 * @param SoilHumidity 土壤湿度
+	 * @param createtime 插入时间
 	 * @return
 	 */
-	public int tempInsertelement(String Mac, double AirHumidity, double AirTemp, double SoilHumidity);
+	public int tempInsertelement(String Mac, double AirHumidity, double AirTemp, double SoilHumidity, String createtime);
 	
 }
