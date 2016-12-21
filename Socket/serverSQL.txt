@@ -1,0 +1,28 @@
+create database servers;
+use servers;
+create table user(
+id int primary key auto_increment,
+username varchar(40) not null,
+password varchar(40) not null,
+craatetime varchar(20) not null);
+
+create table device(
+deviceid int primary key auto_increment,
+devicename varchar(40) not null,
+Mac varchar(20) not null,
+devicecreatetime varchar(20) not null);
+
+create table elementdata(
+dataid int primary key auto_increment, 
+mac varchar(20),
+airtemp double(4,2),
+airhum double(4,2),
+soilhum double(4,2),
+time varchar(20) not null);
+
+create table useranddevice(
+udid int primary key auto_increment,
+uid int,
+deviid int,
+foreign key(uid) references user(id),
+foreign key(deviid) references device(deviceid));
